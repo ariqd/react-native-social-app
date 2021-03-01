@@ -11,8 +11,8 @@ const FormInput = ({iconType, labelValue, placeholderText, ...rest}) => {
         <AntDesign name={iconType} size={25} color="#666" />
       </View>
       <TextInput
-        style={styles.labelValue}
         value={labelValue}
+        style={styles.input}
         placeholder={placeholderText}
         placeholderTextColor="#666"
         numberOfLines={1}
@@ -26,7 +26,7 @@ export default FormInput;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginTop: 5,
+    marginTop: 10,
     marginBottom: 10,
     width: '100%',
     height: windowHeight / 15,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputField: {
-    padding: 10,
+    padding: 15,
     marginTop: 5,
     marginBottom: 10,
     width: windowWidth / 1.5,

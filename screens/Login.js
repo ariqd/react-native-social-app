@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
+import SocialButton from '../components/SocialButton';
 
-const Login = () => {
+const Login = (props) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
       <Image
@@ -16,7 +20,46 @@ const Login = () => {
         placeholderText="Email"
         iconType="user"
         keyboardType="email-address"
+        onChangeText={(email) => setEmail(email)}
       />
+
+      <FormInput
+        placeholderText="Password"
+        iconType="lock"
+        onChangeText={(password) => setPassword(password)}
+        secureTextEntry
+      />
+
+      <FormButton
+        buttonTitle="Sign In"
+        onPress={() => alert('Sign In Clicked')}
+      />
+
+      <TouchableOpacity style={styles.forgotButton}>
+        <Text style={styles.navButtonText}>Forgot Password</Text>
+      </TouchableOpacity>
+
+      <SocialButton
+        buttonTitle="Sign In with Facebook"
+        iconType="facebook"
+        color="#4867aa"
+        backgroundColor="#e6eaf4"
+        onPress={() => {}}
+      />
+
+      <SocialButton
+        buttonTitle="Sign In with Google"
+        iconType="google"
+        color="#de4d41"
+        backgroundColor="#f5e7ea"
+        onPress={() => {}}
+      />
+
+      <TouchableOpacity
+        style={styles.forgotButton}
+        onPress={() => props.navigation.navigate('Register')}>
+        <Text style={styles.navButtonText}>I don't have an Account</Text>
+      </TouchableOpacity>
     </View>
   );
 };
